@@ -1,0 +1,14 @@
+{
+  "experiment": "benchmarks",
+  "synthetic_data": true,
+  "package_version": "0.2.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-12T03:22:43+00:00",
+  "repetitions": 15,
+  "n_trials": 150,
+  "n_options": 4,
+  "participants_extrapolated": 975
+}

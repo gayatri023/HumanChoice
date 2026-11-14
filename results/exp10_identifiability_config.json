@@ -1,0 +1,22 @@
+{
+  "experiment": "exp10_identifiability",
+  "synthetic_data": true,
+  "package_version": "0.2.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-11T08:53:27+00:00",
+  "participants_per_cell": 40,
+  "missed_prob": 0.03,
+  "conditions": [
+    "trials",
+    "volatility drift_sd=0.01",
+    "volatility drift_sd=0.06",
+    "options K=2",
+    "options K=8"
+  ],
+  "n_starts": 4,
+  "seed": 2026,
+  "poor_threshold_r": 0.6
+}

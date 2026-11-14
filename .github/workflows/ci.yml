@@ -1,0 +1,41 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: ruff check src tests experiments examples
+      - run: mypy src
+      - run: pytest --cov=humanchoice --cov-report=term-missing --cov-fail-under=90
+  experiments-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - run: sh experiments/run_all.sh --quick
+      - run: for f in examples/0[1236]*.py; do python "$f" > /dev/null; done
+      - run: humanchoice reproduce empirical-bandit --quick --out /tmp/demo
+      - run: humanchoice list-models
+  wheel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build
+      - run: python -m build --wheel
+      - run: python -m venv /tmp/v && /tmp/v/bin/pip install dist/*.whl
+      - run: /tmp/v/bin/humanchoice --version && /tmp/v/bin/humanchoice reproduce empirical-bandit --quick --out /tmp/wheel_demo
+      - run: test -f /tmp/wheel_demo/analysis_plan.md   # the analysis plan must ship inside the wheel

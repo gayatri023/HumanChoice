@@ -1,0 +1,27 @@
+{
+  "_comment": "TEMPLATE - every field marked VERIFY or MAP_ME must be confirmed against the data source (OSF project and the paper) BEFORE use. 'humanchoice fit' refuses to run while any provenance field says VERIFY. 'path' is resolved relative to THIS JSON file (this template lives in configs/, so a raw/ folder at the project root is ../raw/). Column names below are placeholders: replace them with the real column names of the downloaded CSV; 'humanchoice validate-data' fails loudly if they do not match. choice_categories, reward_range and the exclusion thresholds are the values pre-specified in docs/analysis_plan.md (reward_range must be checked against the task description).",
+  "name": "bahrami_navajas_2020_four_armed_bandit",
+  "path": "../raw/MAP_ME.csv",
+  "columns": {
+    "participant_id": "MAP_ME",
+    "trial": "MAP_ME",
+    "choice": "MAP_ME",
+    "reward": "MAP_ME"
+  },
+  "choice_categories": ["1", "2", "3", "4"],
+  "reward_range": [0, 100],
+  "rescale_rewards": true,
+  "missing": "mark",
+  "sort": true,
+  "exclusions": {"max_missed_fraction": 0.2, "min_valid_trials": 100},
+  "sha256": null,
+  "synthetic": false,
+  "provenance": {
+    "catalogue_url": "https://nimh-dsst.github.io/OpenCogData/bahrami-navajas-2020",
+    "source_url": "VERIFY: OSF project linked from the catalogue page (project id f3t2a) - confirm and record the exact file names and version",
+    "citation": "VERIFY: Bahrami & Navajas (2020) - copy the full reference from the OSF project / publisher page",
+    "licence": "VERIFY: data-use terms and licence of the OSF project",
+    "ethics_and_consent": "VERIFY: consent / anonymisation statement in the source",
+    "task_description": "VERIFY: number of options, trials per participant, reward range and drift schedules, response deadline and timeout handling"
+  }
+}

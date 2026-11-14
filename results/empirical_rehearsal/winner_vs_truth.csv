@@ -1,0 +1,9 @@
+generating,random,wsls,q,asym_q,sticky_q,lapse_q,kalman,criterion
+asym_q,2,0,6,0,2,1,1,aic
+lapse_q,1,0,8,0,0,0,3,aic
+q,2,0,9,2,2,0,3,aic
+sticky_q,1,4,0,0,13,0,0,aic
+asym_q,3,0,8,0,1,0,0,bic
+lapse_q,3,0,7,0,0,0,2,bic
+q,3,0,14,1,0,0,0,bic
+sticky_q,4,1,1,0,12,0,0,bic

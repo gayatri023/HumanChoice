@@ -1,0 +1,5 @@
+n_trials,criterion,accuracy,chance,datasets
+100,bic,0.667,0.25,120
+100,aic,0.675,0.25,120
+300,bic,0.783,0.25,120
+300,aic,0.817,0.25,120

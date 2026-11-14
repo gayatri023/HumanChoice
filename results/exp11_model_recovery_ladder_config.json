@@ -1,0 +1,33 @@
+{
+  "experiment": "exp11_model_recovery_ladder",
+  "synthetic_data": true,
+  "package_version": "0.2.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-11T08:56:10+00:00",
+  "candidates": [
+    "random",
+    "wsls",
+    "q",
+    "asym_q",
+    "sticky_q",
+    "lapse_q",
+    "kalman"
+  ],
+  "generators": [
+    "random",
+    "wsls",
+    "q",
+    "asym_q",
+    "sticky_q",
+    "lapse_q",
+    "kalman",
+    "full_q (mis-specified)"
+  ],
+  "datasets_per_generator": 20,
+  "n_trials": 150,
+  "n_starts": 3,
+  "seed": 2026
+}

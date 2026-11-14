@@ -1,0 +1,7 @@
+condition,agent,mean_return,ci95,catastrophes_per_episode,episodes,steps
+j exactly as modelled (horizon 3),level-0 POMDP,-6.2225,5.024341791525551,0.1775,400,20
+j exactly as modelled (horizon 3),level-1 I-POMDP,2.9625,4.304542619405772,0.1525,400,20
+j exactly as modelled (horizon 3),paired difference (L1 - L0),9.185,5.380294665706011,,400,20
+j mis-specified (horizon 1),level-0 POMDP,-48.4075,6.6306005236354775,0.515,400,20
+j mis-specified (horizon 1),level-1 I-POMDP,-3.1425,4.422562668880503,0.1625,400,20
+j mis-specified (horizon 1),paired difference (L1 - L0),45.265,6.82570711010826,,400,20

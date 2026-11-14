@@ -1,0 +1,5 @@
+observations (i listens each step),level-1 P(tiger left),level-0 P(tiger left),level-1 P(j is confident)
+"3 x (growl-left, silence)",0.9938227435004795,0.9945344129554656,0.6164552894033611
+"... then (growl-left, silence)",0.9735089516756841,0.9990311236573287,0.7122983174308825
+"... then (growl-left, creak-right): j opened right",0.5282760548111807,0.9990311236573287,0.04253559767837796
+"... then (growl-left, creak-left): j opened left",0.6944598350882649,0.9990311236573287,0.29252543769463657

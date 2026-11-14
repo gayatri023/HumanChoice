@@ -1,0 +1,18 @@
+{
+  "experiment": "exp8_interactive_models",
+  "synthetic_data": true,
+  "package_version": "0.2.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-11T08:42:40+00:00",
+  "pomdp_max_horizon": 5,
+  "bamdp_max_horizon": 12,
+  "episodes": 400,
+  "steps_per_episode": 20,
+  "planning_horizon": 3,
+  "epsilon_j": 0.05,
+  "model_closure_depth": 8,
+  "seed": 2026
+}

@@ -1,0 +1,5 @@
+generating_model,model,AIC,BIC
+bamdp,bamdp,10,10
+pomdp,pomdp,10,10
+q_learning,asym_q,2,0
+q_learning,q_learning,8,10

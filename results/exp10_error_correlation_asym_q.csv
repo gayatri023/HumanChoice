@@ -1,0 +1,4 @@
+,alpha_pos,alpha_neg,beta
+alpha_pos,1.0,0.108,-0.383
+alpha_neg,0.108,1.0,-0.412
+beta,-0.383,-0.412,1.0

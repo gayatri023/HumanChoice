@@ -1,0 +1,21 @@
+{
+  "experiment": "exp9_empirical_rehearsal",
+  "synthetic_data": true,
+  "package_version": "0.2.2",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-14T04:47:44+00:00",
+  "participants": 60,
+  "n_trials": 150,
+  "mixture": {
+    "q": 18,
+    "asym_q": 12,
+    "sticky_q": 18,
+    "lapse_q": 12
+  },
+  "missed_prob": 0.03,
+  "seed": 2026,
+  "output": "/home/claude/humanchoice/results/empirical_rehearsal"
+}

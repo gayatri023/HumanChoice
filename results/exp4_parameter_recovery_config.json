@@ -1,0 +1,27 @@
+{
+  "experiment": "exp4_parameter_recovery",
+  "synthetic_data": true,
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-11T02:59:41+00:00",
+  "models": [
+    "q_learning",
+    "asymmetric_q_learning",
+    "pomdp_reversal",
+    "bamdp_bandit"
+  ],
+  "trial_counts": [
+    50,
+    100,
+    200,
+    400
+  ],
+  "participants_per_cell": 60,
+  "n_starts": 4,
+  "env": "ReversalBandit(p_good=0.8, hazard=0.08)",
+  "poor_recovery_threshold_r": 0.6,
+  "seed": 2026
+}

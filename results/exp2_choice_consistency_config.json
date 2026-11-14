@@ -1,0 +1,23 @@
+{
+  "experiment": "exp2_choice_consistency",
+  "synthetic_data": true,
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-11T02:56:32+00:00",
+  "betas": [
+    0.25,
+    0.5,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "alpha": 0.3,
+  "n_participants": 300,
+  "n_trials": 100,
+  "seed": 2026
+}

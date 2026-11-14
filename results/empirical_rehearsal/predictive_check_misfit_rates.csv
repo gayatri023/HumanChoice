@@ -1,0 +1,50 @@
+model,statistic,n_participants,n_misfit,n,misfit_rate,expected_by_chance,ci_lower,ci_upper,flag_threshold,population_flag,interpretation
+random,p_stay,60,34,60,0.5666666666666667,0.05,0.44103438776125564,0.6842760319531324,0.3,True,flagged
+random,p_stay_after_win,60,37,60,0.6166666666666667,0.05,0.49017595824099924,0.7291172762591798,0.3,True,flagged
+random,p_stay_after_loss,60,8,60,0.13333333333333333,0.05,0.06914109480586972,0.24165159676499615,0.3,False,"elevated, below flag threshold"
+random,p_stay_first_third,60,18,60,0.3,0.05,0.19898166138769108,0.42508707946914487,0.3,False,"elevated, below flag threshold"
+random,p_stay_last_third,60,25,60,0.4166666666666667,0.05,0.30064278558341617,0.5427191897735989,0.3,True,flagged
+random,choice_entropy,60,39,60,0.65,0.05,0.5236261884175486,0.7583222559398244,0.3,True,flagged
+random,max_option_share,60,37,60,0.6166666666666667,0.05,0.49017595824099924,0.7291172762591798,0.3,True,flagged
+wsls,p_stay,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+wsls,p_stay_after_win,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+wsls,p_stay_after_loss,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+wsls,p_stay_first_third,60,1,60,0.016666666666666666,0.05,0.0029481597947862495,0.08855129727590061,0.3,False,consistent with chance
+wsls,p_stay_last_third,60,4,60,0.06666666666666667,0.05,0.026228698724506214,0.1592535731319717,0.3,False,consistent with chance
+wsls,choice_entropy,60,35,60,0.5833333333333334,0.05,0.45728081022640116,0.6993572144165838,0.3,True,flagged
+wsls,max_option_share,60,28,60,0.4666666666666667,0.05,0.34627906041438494,0.5910657297284211,0.3,True,flagged
+q,p_stay,60,15,60,0.25,0.05,0.15776522530056675,0.37232070077047824,0.3,False,"elevated, below flag threshold"
+q,p_stay_after_win,60,11,60,0.18333333333333332,0.05,0.10557796889197638,0.2991975374646805,0.3,False,"elevated, below flag threshold"
+q,p_stay_after_loss,60,12,60,0.2,0.05,0.11828505322897494,0.317818058056279,0.3,False,"elevated, below flag threshold"
+q,p_stay_first_third,60,9,60,0.15,0.05,0.08097440580167739,0.2611458906977855,0.3,False,"elevated, below flag threshold"
+q,p_stay_last_third,60,10,60,0.16666666666666666,0.05,0.0931317697919145,0.2803161316361453,0.3,False,"elevated, below flag threshold"
+q,choice_entropy,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+q,max_option_share,60,1,60,0.016666666666666666,0.05,0.0029481597947862495,0.08855129727590061,0.3,False,consistent with chance
+asym_q,p_stay,60,16,60,0.26666666666666666,0.05,0.17132640003280553,0.39008713096683645,0.3,False,"elevated, below flag threshold"
+asym_q,p_stay_after_win,60,11,60,0.18333333333333332,0.05,0.10557796889197638,0.2991975374646805,0.3,False,"elevated, below flag threshold"
+asym_q,p_stay_after_loss,60,12,60,0.2,0.05,0.11828505322897494,0.317818058056279,0.3,False,"elevated, below flag threshold"
+asym_q,p_stay_first_third,60,10,60,0.16666666666666666,0.05,0.0931317697919145,0.2803161316361453,0.3,False,"elevated, below flag threshold"
+asym_q,p_stay_last_third,60,10,60,0.16666666666666666,0.05,0.0931317697919145,0.2803161316361453,0.3,False,"elevated, below flag threshold"
+asym_q,choice_entropy,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+asym_q,max_option_share,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+sticky_q,p_stay,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+sticky_q,p_stay_after_win,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+sticky_q,p_stay_after_loss,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+sticky_q,p_stay_first_third,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+sticky_q,p_stay_last_third,60,2,60,0.03333333333333333,0.05,0.009189319256197877,0.113637742743086,0.3,False,consistent with chance
+sticky_q,choice_entropy,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+sticky_q,max_option_share,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+lapse_q,p_stay,60,15,60,0.25,0.05,0.15776522530056675,0.37232070077047824,0.3,False,"elevated, below flag threshold"
+lapse_q,p_stay_after_win,60,11,60,0.18333333333333332,0.05,0.10557796889197638,0.2991975374646805,0.3,False,"elevated, below flag threshold"
+lapse_q,p_stay_after_loss,60,12,60,0.2,0.05,0.11828505322897494,0.317818058056279,0.3,False,"elevated, below flag threshold"
+lapse_q,p_stay_first_third,60,9,60,0.15,0.05,0.08097440580167739,0.2611458906977855,0.3,False,"elevated, below flag threshold"
+lapse_q,p_stay_last_third,60,10,60,0.16666666666666666,0.05,0.0931317697919145,0.2803161316361453,0.3,False,"elevated, below flag threshold"
+lapse_q,choice_entropy,60,0,60,0.0,0.05,0.0,0.06017185214208986,0.3,False,consistent with chance
+lapse_q,max_option_share,60,1,60,0.016666666666666666,0.05,0.0029481597947862495,0.08855129727590061,0.3,False,consistent with chance
+kalman,p_stay,60,14,60,0.23333333333333334,0.05,0.1443956173664283,0.35436270377601964,0.3,False,"elevated, below flag threshold"
+kalman,p_stay_after_win,60,11,60,0.18333333333333332,0.05,0.10557796889197638,0.2991975374646805,0.3,False,"elevated, below flag threshold"
+kalman,p_stay_after_loss,60,5,60,0.08333333333333333,0.05,0.03612045660173077,0.1806894201833441,0.3,False,consistent with chance
+kalman,p_stay_first_third,60,5,60,0.08333333333333333,0.05,0.03612045660173077,0.1806894201833441,0.3,False,consistent with chance
+kalman,p_stay_last_third,60,9,60,0.15,0.05,0.08097440580167739,0.2611458906977855,0.3,False,"elevated, below flag threshold"
+kalman,choice_entropy,60,1,60,0.016666666666666666,0.05,0.0029481597947862495,0.08855129727590061,0.3,False,consistent with chance
+kalman,max_option_share,60,2,60,0.03333333333333333,0.05,0.009189319256197877,0.113637742743086,0.3,False,consistent with chance

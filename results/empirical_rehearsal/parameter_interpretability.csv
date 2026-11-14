@@ -1,0 +1,17 @@
+model,param,median_estimate,frac_at_bound,recovery_status
+wsls,p_win_stay,0.4057836733268983,0.0,NO recovery gate supplied - do not interpret
+wsls,p_lose_shift,0.776948592950525,0.016666666666666666,NO recovery gate supplied - do not interpret
+q,alpha,0.4056651752564223,0.18333333333333332,NO recovery gate supplied - do not interpret
+q,beta,4.531571411703272,0.1,NO recovery gate supplied - do not interpret
+asym_q,alpha_pos,0.48846363813038185,0.31666666666666665,NO recovery gate supplied - do not interpret
+asym_q,alpha_neg,0.29248279581242353,0.15,NO recovery gate supplied - do not interpret
+asym_q,beta,4.73233542295624,0.03333333333333333,NO recovery gate supplied - do not interpret
+sticky_q,alpha,0.3976530718471152,0.11666666666666667,NO recovery gate supplied - do not interpret
+sticky_q,beta,4.496978290175032,0.06666666666666667,NO recovery gate supplied - do not interpret
+sticky_q,kappa,0.047920501616308855,0.0,NO recovery gate supplied - do not interpret
+lapse_q,alpha,0.41585863611712803,0.11666666666666667,NO recovery gate supplied - do not interpret
+lapse_q,beta,6.074778286520031,0.06666666666666667,NO recovery gate supplied - do not interpret
+lapse_q,epsilon,0.0,0.6166666666666667,NO recovery gate supplied - do not interpret
+kalman,beta,3.6130332490300794,0.016666666666666666,NO recovery gate supplied - do not interpret
+kalman,phi,-0.13259441075579192,0.05,NO recovery gate supplied - do not interpret
+kalman,drift_ratio,0.04560281941497239,0.5166666666666667,NO recovery gate supplied - do not interpret

@@ -1,0 +1,22 @@
+{
+  "experiment": "exp1_learning_rate",
+  "synthetic_data": true,
+  "package_version": "0.1.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-11T02:56:28+00:00",
+  "alphas": [
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.7,
+    0.95
+  ],
+  "beta": 5.0,
+  "n_participants": 300,
+  "n_trials": 120,
+  "seed": 2026
+}

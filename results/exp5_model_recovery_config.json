@@ -1,0 +1,24 @@
+{
+  "experiment": "exp5_model_recovery",
+  "synthetic_data": true,
+  "package_version": "0.2.0",
+  "python": "3.12.3",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.0.6",
+  "generated_utc": "2026-11-11T08:41:15+00:00",
+  "models": [
+    "q_learning",
+    "asym_q",
+    "bamdp",
+    "pomdp"
+  ],
+  "trial_counts": [
+    100,
+    300
+  ],
+  "datasets_per_model": 30,
+  "n_starts": 3,
+  "env": "ReversalBandit(p_good=0.8, hazard=0.08)",
+  "seed": 2026
+}

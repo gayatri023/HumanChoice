@@ -1,0 +1,5 @@
+generating,q_learning,asym_q,bamdp,pomdp
+q_learning,0.543,0.125,0.1,0.154
+asym_q,0.371,0.625,0.0,0.179
+bamdp,0.029,0.188,0.867,0.0
+pomdp,0.057,0.062,0.033,0.667

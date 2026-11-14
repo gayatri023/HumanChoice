@@ -1,0 +1,34 @@
+{
+  "n_participants": 60,
+  "n_trials_total": 9000,
+  "trials_per_participant_min": 150,
+  "trials_per_participant_max": 150,
+  "n_missed_total": 289,
+  "missed_fraction_overall": 0.03211111111111111,
+  "missed_fraction_per_participant_max": 0.06666666666666667,
+  "participants_with_any_missed": 60,
+  "reward_min": 0.0,
+  "reward_max": 1.0,
+  "reward_mean": 0.5638649419634514,
+  "reward_sd": 0.17235400939182857,
+  "n_distinct_reward_values": 8689,
+  "choice_proportions": {
+    "A": 0.24497761451038916,
+    "B": 0.24520720927562853,
+    "C": 0.25140626793709103,
+    "D": 0.2584089082768913
+  },
+  "choice_categories": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "columns": [
+    "participant_id",
+    "trial",
+    "choice",
+    "reward",
+    "missed"
+  ]
+}

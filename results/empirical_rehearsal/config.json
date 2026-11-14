@@ -1,0 +1,269 @@
+{
+  "title": "Empirical-analysis pipeline: synthetic rehearsal",
+  "banner": "SYNTHETIC REHEARSAL - simulated participants with known generating models. NOT human data.",
+  "package_version": "0.2.2",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v470-x86_64-with-glibc2.39",
+    "packages": {
+      "humanchoice": "0.2.2",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "matplotlib": "3.11.2"
+    }
+  },
+  "generated_utc": "2026-11-14T04:47:44+00:00",
+  "git_commit": null,
+  "analysis_plan_sha256": "3ac97c08231b62e03f737441d487ac5eb2d7e24f44361b58cabff89dea2ce438",
+  "dataset_spec_sha256": null,
+  "seed": 2026,
+  "n_starts": 4,
+  "train_fractions": [
+    0.5,
+    0.6,
+    0.7,
+    0.8
+  ],
+  "win_threshold": 0.5,
+  "n_jobs": 1,
+  "misfit_flag_threshold": 0.3,
+  "ppc_sims": 200,
+  "session_sims": 50,
+  "selected_participants": {
+    "predictive_checks": [
+      "asym_q_001",
+      "asym_q_002",
+      "asym_q_003",
+      "asym_q_004",
+      "asym_q_005",
+      "asym_q_006",
+      "asym_q_007",
+      "asym_q_008",
+      "asym_q_009",
+      "asym_q_010",
+      "asym_q_011",
+      "asym_q_012",
+      "lapse_q_001",
+      "lapse_q_002",
+      "lapse_q_003",
+      "lapse_q_004",
+      "lapse_q_005",
+      "lapse_q_006",
+      "lapse_q_007",
+      "lapse_q_008",
+      "lapse_q_009",
+      "lapse_q_010",
+      "lapse_q_011",
+      "lapse_q_012",
+      "q_001",
+      "q_002",
+      "q_003",
+      "q_004",
+      "q_005",
+      "q_006",
+      "q_007",
+      "q_008",
+      "q_009",
+      "q_010",
+      "q_011",
+      "q_012",
+      "q_013",
+      "q_014",
+      "q_015",
+      "q_016",
+      "q_017",
+      "q_018",
+      "sticky_q_001",
+      "sticky_q_002",
+      "sticky_q_003",
+      "sticky_q_004",
+      "sticky_q_005",
+      "sticky_q_006",
+      "sticky_q_007",
+      "sticky_q_008",
+      "sticky_q_009",
+      "sticky_q_010",
+      "sticky_q_011",
+      "sticky_q_012",
+      "sticky_q_013",
+      "sticky_q_014",
+      "sticky_q_015",
+      "sticky_q_016",
+      "sticky_q_017",
+      "sticky_q_018"
+    ],
+    "profiles": {
+      "sticky_q": [
+        "asym_q_001",
+        "q_014",
+        "sticky_q_007",
+        "sticky_q_011",
+        "sticky_q_012",
+        "sticky_q_018"
+      ],
+      "q": [
+        "asym_q_009",
+        "lapse_q_008",
+        "lapse_q_012",
+        "sticky_q_007",
+        "sticky_q_010",
+        "sticky_q_013"
+      ]
+    }
+  },
+  "second_seed_check": {
+    "second_seed": 2027,
+    "max_abs_rate_difference": 0.04999999999999993,
+    "n_flag_changes": 1,
+    "n_cells": 49
+  },
+  "recovery_gate_supplied": false,
+  "n_participants": 60,
+  "n_options": 4,
+  "binary_rewards": false,
+  "max_participants": null,
+  "models": {
+    "random": {
+      "class": "RandomChoice",
+      "params": [],
+      "bounds": []
+    },
+    "wsls": {
+      "class": "WinStayLoseShift",
+      "params": [
+        "p_win_stay",
+        "p_lose_shift"
+      ],
+      "bounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "q": {
+      "class": "QLearning",
+      "params": [
+        "alpha",
+        "beta"
+      ],
+      "bounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          20.0
+        ]
+      ]
+    },
+    "asym_q": {
+      "class": "AsymmetricQLearning",
+      "params": [
+        "alpha_pos",
+        "alpha_neg",
+        "beta"
+      ],
+      "bounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          20.0
+        ]
+      ]
+    },
+    "sticky_q": {
+      "class": "StickyQLearning",
+      "params": [
+        "alpha",
+        "beta",
+        "kappa"
+      ],
+      "bounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          20.0
+        ],
+        [
+          -2.0,
+          5.0
+        ]
+      ]
+    },
+    "lapse_q": {
+      "class": "LapseQLearning",
+      "params": [
+        "alpha",
+        "beta",
+        "epsilon"
+      ],
+      "bounds": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          20.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ]
+    },
+    "kalman": {
+      "class": "KalmanBandit",
+      "params": [
+        "beta",
+        "phi",
+        "drift_ratio"
+      ],
+      "bounds": [
+        [
+          0.0,
+          40.0
+        ],
+        [
+          -2.0,
+          5.0
+        ],
+        [
+          0.001,
+          10.0
+        ]
+      ]
+    }
+  },
+  "dataset": {
+    "synthetic": true,
+    "kind": "restless_bandit_rehearsal",
+    "seed": 2026,
+    "missed_prob": 0.03,
+    "n_trials": 150,
+    "environment": "RestlessBandit(4) [Daw et al. 2006 design, rescaled]"
+  },
+  "preprocessing_steps": [
+    "required columns present: participant_id, trial, choice, reward",
+    "marked 289 rows without a response as missed trials (no learning, excluded from likelihood)",
+    "trials are consecutive 1..N for every participant",
+    "validated 60 participants; choices in ['A', 'B', 'C', 'D']"
+  ]
+}

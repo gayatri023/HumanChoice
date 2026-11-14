@@ -1,0 +1,10 @@
+train_fraction,generating_model,best_held_out_model
+0.3,bamdp,bamdp
+0.3,pomdp,pomdp
+0.3,q_learning,q_learning
+0.5,bamdp,bamdp
+0.5,pomdp,pomdp
+0.5,q_learning,q_learning
+0.7,bamdp,bamdp
+0.7,pomdp,pomdp
+0.7,q_learning,q_learning
