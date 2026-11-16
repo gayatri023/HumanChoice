@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import cast
 
 import numpy as np
 import pandas as pd
@@ -44,27 +45,60 @@ def run_model_recovery(
     """
     if criterion not in ("aic", "bic"):
         raise ValueError("criterion must be 'aic' or 'bic'")
+
     names = list(models)
     gens = generators if generators is not None else models
     ss = np.random.SeedSequence(seed)
     rows = []
+
     for gen in gens:
         draw_rng = np.random.default_rng(ss.spawn(1)[0])
         sim_seeds = ss.spawn(n_per_model)
+
         for i in range(n_per_model):
             theta = gens[gen].sample_params(draw_rng)
-            sim = gens[gen].simulate(theta, env_factory(), n_trials, np.random.default_rng(sim_seeds[i]), missed_prob=missed_prob)
+            sim = gens[gen].simulate(
+                theta,
+                env_factory(),
+                n_trials,
+                np.random.default_rng(sim_seeds[i]),
+                missed_prob=missed_prob,
+            )
+
             for cand in names:
-                f = fit_model(models[cand], sim["choices"], sim["rewards"], n_starts=n_starts, seed=seed + i)
-                rows.append(
-                    {"generating": gen, "dataset": i, "fitted": cand, "nll": f.nll, "aic": f.aic, "bic": f.bic,
-                     "converged": f.converged}
+                f = fit_model(
+                    models[cand],
+                    sim["choices"],
+                    sim["rewards"],
+                    n_starts=n_starts,
+                    seed=seed + i,
                 )
-    return summarise_model_recovery(pd.DataFrame(rows), names, criterion, generator_names=list(gens))
+
+                rows.append(
+                    {
+                        "generating": gen,
+                        "dataset": i,
+                        "fitted": cand,
+                        "nll": f.nll,
+                        "aic": f.aic,
+                        "bic": f.bic,
+                        "converged": f.converged,
+                    }
+                )
+
+    return summarise_model_recovery(
+        pd.DataFrame(rows),
+        names,
+        criterion,
+        generator_names=list(gens),
+    )
 
 
 def summarise_model_recovery(
-    fits: pd.DataFrame, names: list[str], criterion: str = "bic", generator_names: list[str] | None = None
+    fits: pd.DataFrame,
+    names: list[str],
+    criterion: str = "bic",
+    generator_names: list[str] | None = None,
 ) -> ModelRecoveryResult:
     """Select the best model per dataset under ``criterion`` and build the confusion matrices.
 
@@ -74,29 +108,82 @@ def summarise_model_recovery(
     """
     if criterion not in ("aic", "bic"):
         raise ValueError("criterion must be 'aic' or 'bic'")
-    gen_names = list(generator_names) if generator_names is not None else list(names)
-    winners = fits.loc[fits.groupby(["generating", "dataset"])[criterion].idxmin()]
-    counts = pd.crosstab(winners["generating"], winners["fitted"]).reindex(index=gen_names, columns=names, fill_value=0)
+
+    gen_names = (
+        list(generator_names)
+        if generator_names is not None
+        else list(names)
+    )
+
+    winners = fits.loc[
+        fits.groupby(["generating", "dataset"])[criterion].idxmin()
+    ]
+
+    counts = pd.crosstab(
+        winners["generating"],
+        winners["fitted"],
+    ).reindex(
+        index=gen_names,
+        columns=names,
+        fill_value=0,
+    )
+
     confusion = counts.div(counts.sum(axis=1), axis=0)
-    inversion = counts.div(counts.sum(axis=0).replace(0, np.nan), axis=1).fillna(0.0)
+
+    inversion = counts.div(
+        counts.sum(axis=0).replace(0, np.nan),
+        axis=1,
+    ).fillna(0.0)
+
     matched = [g for g in gen_names if g in names]
     total = counts.loc[matched].to_numpy().sum()
+
+    # Count correct model selections for generators that are also candidates.
     correct = 0
     for name in matched:
-        correct += int(counts.loc[name, name])
+        correct += cast(int, counts.loc[name, name])
+
     accuracy = float(correct / total) if total else float("nan")
-    return ModelRecoveryResult(fits, confusion, counts, inversion, accuracy, criterion)
+
+    return ModelRecoveryResult(
+        fits,
+        confusion,
+        counts,
+        inversion,
+        accuracy,
+        criterion,
+    )
 
 
-def recovery_accuracy_table(result: ModelRecoveryResult, level: float = 0.95) -> pd.DataFrame:
+def recovery_accuracy_table(
+    result: ModelRecoveryResult,
+    level: float = 0.95,
+) -> pd.DataFrame:
     """Per-generator recovery accuracy with Wilson score intervals (a handful of datasets gives wide intervals)."""
     from humanchoice.evaluation.metrics import wilson_interval
 
     rows = []
+
     for g in result.counts.index:
         n = int(result.counts.loc[g].sum())
-        k = int(result.counts.loc[g, g]) if g in result.counts.columns else 0
+
+        k = (
+            int(result.counts.loc[g, g])
+            if g in result.counts.columns
+            else 0
+        )
+
         lo, hi = wilson_interval(k, n, level)
-        rows.append({"generating": g, "n_datasets": n, "n_correct": k, "accuracy": k / n if n else np.nan,
-                     "ci_lo": lo, "ci_hi": hi})
+
+        rows.append(
+            {
+                "generating": g,
+                "n_datasets": n,
+                "n_correct": k,
+                "accuracy": k / n if n else np.nan,
+                "ci_lo": lo,
+                "ci_hi": hi,
+            }
+        )
+
     return pd.DataFrame(rows)
