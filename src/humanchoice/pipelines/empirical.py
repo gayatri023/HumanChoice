@@ -21,6 +21,7 @@ import platform
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -532,7 +533,11 @@ def run_empirical_by_condition(
     out = Path(outdir)
     if condition_col not in dataset.df.columns:
         raise ValueError(f"dataset has no '{condition_col}' column")
-    results = {"pooled": run_empirical_analysis(dataset, out / "pooled", title="Pooled analysis (all schedules)", **kwargs)}
+    results: dict[str, Any] = {
+        "pooled": run_empirical_analysis(
+            dataset, out / "pooled", title="Pooled analysis (all schedules)", **kwargs
+        )
+    }
     levels = dataset.df.groupby("participant_id")[condition_col].first().astype(str)
     rows = [{"scope": "pooled", "n_participants": len(dataset), "status": "analysed"}]
     for level, ids in levels.groupby(levels):

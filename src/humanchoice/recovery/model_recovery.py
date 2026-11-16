@@ -81,7 +81,10 @@ def summarise_model_recovery(
     inversion = counts.div(counts.sum(axis=0).replace(0, np.nan), axis=1).fillna(0.0)
     matched = [g for g in gen_names if g in names]
     total = counts.loc[matched].to_numpy().sum()
-    accuracy = float(sum(counts.loc[g, g] for g in matched) / total) if total else float("nan")
+    correct = 0
+    for name in matched:
+        correct += int(counts.loc[name, name])
+    accuracy = float(correct / total) if total else float("nan")
     return ModelRecoveryResult(fits, confusion, counts, inversion, accuracy, criterion)
 
 

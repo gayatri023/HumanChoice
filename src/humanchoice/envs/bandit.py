@@ -10,6 +10,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 
 import numpy as np
+from numpy.typing import NDArray
 
 
 class BernoulliBandit:
@@ -77,7 +78,7 @@ class DriftingBernoulliBandit:
         if n_arms < 2 or drift_sd < 0:
             raise ValueError("n_arms must be >= 2 and drift_sd >= 0")
         self.n_actions, self.drift_sd = int(n_arms), float(drift_sd)
-        self.logits = np.zeros(self.n_actions)
+        self.logits: NDArray[np.float64] = np.zeros(self.n_actions, dtype=np.float64)
         self.good_arm_history: list[int] = []
 
     def reset(self, rng: np.random.Generator) -> None:
@@ -114,7 +115,7 @@ class RestlessBandit:
             raise ValueError("invalid RestlessBandit parameters")
         self.n_actions = int(n_arms)
         self.drift_sd, self.obs_sd, self.decay, self.theta = drift_sd, obs_sd, decay, theta
-        self.mu = np.full(self.n_actions, theta)
+        self.mu: NDArray[np.float64] = np.full(self.n_actions, theta, dtype=np.float64)
         self.good_arm_history: list[int] = []
 
     def reset(self, rng: np.random.Generator) -> None:

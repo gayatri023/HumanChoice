@@ -75,11 +75,12 @@ class BehaviouralDataset:
     def __len__(self) -> int:
         return len(self._groups)
 
-    def get(self, participant_id: str) -> tuple[NDArray[np.int_], NDArray[np.float64]]:
+    def get(self, participant_id: str) -> tuple[np.ndarray, np.ndarray]:
         """Return ``(choices, rewards)`` for one participant; choices are 0-based indices, ``-1`` = missed trial."""
         g = self._groups[participant_id]
-        choices = g["choice"].map(self._index).to_numpy(dtype=int)
-        return choices, g["reward"].to_numpy(dtype=float)
+        choices = g["choice"].map(self._index).to_numpy(dtype=np.int64)
+        rewards = g["reward"].to_numpy(dtype=np.float64)
+        return choices, rewards
 
     def get_available(self, participant_id: str) -> NDArray[np.bool_] | None:
         """``(T, K)`` boolean availability matrix, or ``None`` if the data have no ``available_actions`` column."""

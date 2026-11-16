@@ -128,7 +128,7 @@ def stratified_recovery_metrics(
     frames = []
     for (_, stratum), g in d.groupby(["n_trials", "stratum"], sort=False):
         m = recovery_metrics(g, param_names, ci=ci)
-        m["stratum"] = stratum
+        m["stratum"] = str(stratum)
         m["by"] = by
         m["by_min"], m["by_max"] = float(g[col].min()), float(g[col].max())
         frames.append(m)

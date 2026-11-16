@@ -167,9 +167,9 @@ def validate_behaviour(
 
     # choice categories
     observed_choice = d["choice"] != MISSED_LABEL
-    bad = sorted(set(d.loc[observed_choice, "choice"].astype(str)) - set(categories))
-    if bad:
-        raise DataValidationError(f"invalid choice categories {bad}; allowed: {list(categories)}")
+    bad_choices = sorted(set(d.loc[observed_choice, "choice"].astype(str)) - set(categories))
+    if bad_choices:
+        raise DataValidationError(f"invalid choice categories {bad_choices}; allowed: {list(categories)}")
     d["choice"] = d["choice"].astype(str)
 
     # rewards (observed trials only)
